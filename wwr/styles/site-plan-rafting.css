@@ -1,15 +1,15 @@
 /* Import futuristic fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300&display=swap');
 
 :root {
   /* Customize these variables to adjust the color palette */
-  --primary-color: #00ffff; /* Cyan */
-  --secondary-color: #ff00ff; /* Magenta */
-  --accent1-color: #ff0000; /* Red */
-  --accent2-color: #00ff00; /* Green */
+  --primary-color: #000000; /* Black */
+  --secondary-color: #00ff00; /* Neon Green */
+  --accent1-color: #ff0000; /* Neon Red */
+  --accent2-color: #00ffff; /* Neon Cyan */
 
   /* Customize these variables to adjust the fonts */
-  --heading-font: 'Roboto', sans-serif;
+  --heading-font: 'Orbitron', sans-serif;
   --paragraph-font: 'Roboto', sans-serif;
 
   /* Customize these variables to adjust the color scheme */
@@ -33,6 +33,7 @@ body {
   text-align: center;
   background-color: var(--primary-color);
   color: var(--headline-color-on-white);
+  position: relative; /* Added for text shine effect */
 }
 
 /* Header styling */
@@ -40,11 +41,24 @@ header {
   padding: 1em;
   text-align: center;
   background-color: var(--nav-background-color);
+  opacity: 0; /* initially hidden */
+  animation: fadeIn 1s forwards; /* fade in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Paragraph styling */
 p {
   padding: 1em;
+  color: var(--paragraph-color-on-white); /* Added */
+  animation: glowText 1s infinite alternate; /* Text glow animation */
 }
 
 /* Navigation styling */
@@ -61,11 +75,13 @@ nav a {
   text-decoration: none;
   padding: 10px;
   color: var(--nav-link-color);
+  transition: transform 0.3s ease; /* smooth hover effect */
 }
 
 nav a:hover {
   color: var(--nav-hover-link-color);
   background-color: var(--nav-hover-background-color);
+  transform: scale(1.1); /* slight scale increase on hover */
 }
 
 /* Site map layout */
@@ -83,13 +99,14 @@ nav a:hover {
 /* Site map item styling */
 .sitemap > div {
   text-align: center;
+  background-color: var(--accent1-color); /* Added */
+  line-height: 3em; /* Added */
 }
 
 /* Individual site map items */
 .sm-home,
 .sm-page2,
 .sm-page3 {
-  background-color: var(--accent1-color);
   line-height: 3em;
 }
 
@@ -108,4 +125,128 @@ nav a:hover {
   grid-area: right;
   border-top: 1px solid;
   border-right: 1px solid;
+}
+
+/* Hover animation for pushable icons */
+.pushable-icon {
+  transition: transform 0.3s ease; /* smooth hover effect */
+}
+
+.pushable-icon:hover {
+  transform: scale(1.1); /* slight scale increase on hover */
+}
+
+/* Additional animations */
+
+/* Glowing effect on hover */
+.pushable-icon:hover {
+  animation: glow 1s infinite alternate; /* Glowing animation */
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+  to {
+    box-shadow: 0 0 20px var(--primary-color);
+  }
+}
+
+/* Rotate animation */
+.rotating {
+  animation: rotate 2s linear infinite; /* Rotate animation */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bouncing animation */
+.bouncing {
+  animation: bounce 1s infinite; /* Bounce animation */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Text glow animation */
+@keyframes glowText {
+  0% {
+    text-shadow: 0 0 10px var(--accent1-color);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--accent1-color);
+  }
+}
+
+/* Interactive timetable styling */
+.timetable table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.timetable th,
+.timetable td {
+  padding: 10px;
+  border: 1px solid var(--accent1-color);
+  transition: background-color 0.3s ease;
+}
+
+.timetable th {
+  background-color: var(--accent1-color);
+  color: var(--headline-color-on-color);
+}
+
+.timetable td {
+  background-color: var(--primary-color);
+  color: var(--headline-color-on-white);
+}
+
+.timetable th:hover,
+.timetable td:hover {
+  background-color: var(--accent2-color);
+  cursor: pointer;
+}
+
+/* Increase width for Sunday column */
+.streaming-schedule th:last-child,
+.streaming-schedule td:last-child {
+  width: 14.28%; /* 100% divided by 7 days */
+}
+
+/* Cursor style for clickable cells */
+.streaming-schedule .clickable {
+  cursor: pointer;
+}
+
+/* Text shine effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, transparent 0%, #ffffff 80%);
+  animation: shine 1.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  to {
+    top: 150%;
+    left: 150%;
+  }
 }
