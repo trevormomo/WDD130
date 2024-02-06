@@ -2,17 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300&display=swap');
 
 :root {
-  /* Customize these variables to adjust the color palette */
+  /* Color palette variables */
   --primary-color: #000000; /* Black */
   --secondary-color: #00ff00; /* Neon Green */
   --accent1-color: #ff0000; /* Neon Red */
   --accent2-color: #00ffff; /* Neon Cyan */
 
-  /* Customize these variables to adjust the fonts */
+  /* Font variables */
   --heading-font: 'Orbitron', sans-serif;
   --paragraph-font: 'Roboto', sans-serif;
 
-  /* Customize these variables to adjust the color scheme */
+  /* Color scheme variables */
   --headline-color-on-white: #ffffff; /* White */
   --headline-color-on-color: #ffffff; /* White */
   --paragraph-color-on-white: #ffffff; /* White */
@@ -24,7 +24,7 @@
   --nav-hover-background-color: #00ffff; /* Cyan */
 }
 
-/* Body and general styling */
+/* General styling */
 body {
   max-width: 960px;
   margin: 0 auto;
@@ -57,7 +57,7 @@ header {
 /* Paragraph styling */
 p {
   padding: 1em;
-  color: var(--paragraph-color-on-white); /* Added */
+  color: var(--paragraph-color-on-white); /* Updated */
   animation: glowText 1s infinite alternate; /* Text glow animation */
 }
 
@@ -99,8 +99,8 @@ nav a:hover {
 /* Site map item styling */
 .sitemap > div {
   text-align: center;
-  background-color: var(--accent1-color); /* Added */
-  line-height: 3em; /* Added */
+  background-color: var(--accent1-color); /* Updated */
+  line-height: 3em; /* Updated */
 }
 
 /* Individual site map items */
@@ -231,22 +231,17 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* Text shine effect */
-body::before {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, transparent 0%, #ffffff 80%);
-  animation: shine 1.5s infinite;
-  pointer-events: none;
+/* Hover animation for pushable icons */
+.pushable-icon {
+  transition: transform 0.3s ease; /* smooth hover effect */
+  animation: followCursor 0.3s infinite linear; /* follow cursor animation */
 }
 
-@keyframes shine {
-  to {
-    top: 150%;
-    left: 150%;
+@keyframes followCursor {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(calc(-50% + var(--cursor-x)), calc(-50% + var(--cursor-y)));
   }
 }
