@@ -191,7 +191,7 @@ nav a:hover {
 }
 
 /* Interactive timetable styling */
-.timetable table {
+.timetable {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
@@ -219,6 +219,27 @@ nav a:hover {
   background-color: var(--accent2-color);
   cursor: pointer;
 }
+
+/* Increase width for Sunday column */
+.timetable th:last-child,
+.timetable td:last-child {
+  width: 14.28%; /* 100% divided by 7 days */
+}
+
+/* Cursor style for clickable cells */
+.clickable {
+  cursor: pointer;
+}
+
+/* Hover animation for pushable icons */
+.pushable-icon {
+  transition: transform 0.3s ease; /* smooth hover effect */
+}
+
+.pushable-icon:hover {
+  transform: scale(1.1); /* slight scale increase on hover */
+}
+
 
 /* Increase width for Sunday column */
 .streaming-schedule th:last-child,

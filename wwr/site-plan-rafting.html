@@ -96,10 +96,18 @@
     </div>
     
     <!-- Interactive Timetable -->
+ 
+<body>
+  <header>
+    <h1>Redemption's Quest: My Journey as an Underdog Streamer Site Plan</h1>
+    <h2>Trevor Thompson</h2>
+    <h2>WDD 130-[section]</h2>
+  </header>
+  <main>
     <hr />
     <h2>Streaming Schedule</h2>
-    <div class="streaming-schedule">
-      <table>
+    <div class="timetable">
+      <table id="schedule-table">
         <thead>
           <tr>
             <th>Day</th>
@@ -108,14 +116,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Add rows dynamically using JavaScript -->
-          <!-- Example row -->
-          <tr>
-            <td class="clickable">1</td>
-            <td class="clickable">12:00</td>
-            <td class="clickable">Streaming Rocket League gameplay</td>
-          </tr>
-          <!-- Add more rows as needed -->
+          <!-- Rows will be dynamically added here -->
         </tbody>
       </table>
     </div>
@@ -130,7 +131,40 @@
     </div>
   </main>
 
-  <script src="scripts/site-plan.js"></script>
+  <script>
+    // Function to add a new row to the schedule table
+    function addScheduleRow(day, time, activity, notes) {
+      var tableBody = document.querySelector('#schedule-table tbody');
+      var newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td class="clickable">${day}</td>
+        <td class="clickable">${time}</td>
+        <td class="clickable" data-notes="${notes}">${activity}</td>
+      `;
+      tableBody.appendChild(newRow);
+    }
+
+    // Add some sample schedule entries
+    addScheduleRow('1', '12:00', 'Streaming Rocket League gameplay', 'Remember to have fun!');
+    addScheduleRow('2', '15:00', 'Streaming Tarkov raids', 'Get ready for some intense action!');
+    addScheduleRow('3', '18:00', 'Roblox adventure with viewers', 'Invite viewers to join in on the fun!');
+
+    // Functionality for showing popup with notes when clicking on a schedule entry
+    var scheduleEntries = document.querySelectorAll('#schedule-table tbody tr');
+    scheduleEntries.forEach(function (entry) {
+      entry.addEventListener('click', function () {
+        var notes = this.querySelector('td').getAttribute('data-notes');
+        document.getElementById('popup-date').textContent = 'Notes for ' + this.querySelector('td:nth-child(1)').textContent;
+        document.getElementById('popup-notes').textContent = notes;
+        document.getElementById('popup').style.display = 'block';
+      });
+    });
+
+    // Functionality for closing the popup
+    document.querySelector('.close').addEventListener('click', function () {
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
 </body>
 
 </html>
