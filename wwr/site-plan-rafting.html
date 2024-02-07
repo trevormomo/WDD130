@@ -97,13 +97,6 @@
     
     <!-- Interactive Timetable -->
  
-<body>
-  <header>
-    <h1>Redemption's Quest: My Journey as an Underdog Streamer Site Plan</h1>
-    <h2>Trevor Thompson</h2>
-    <h2>WDD 130-[section]</h2>
-  </header>
-  <main>
     <hr />
     <h2>Streaming Schedule</h2>
     <div class="timetable">
@@ -133,21 +126,38 @@
 
   <script>
     // Function to add a new row to the schedule table
-    function addScheduleRow(day, time, activity, notes) {
+    function addScheduleRow(day, time, activity, gameOption) {
       var tableBody = document.querySelector('#schedule-table tbody');
       var newRow = document.createElement('tr');
       newRow.innerHTML = `
         <td class="clickable">${day}</td>
         <td class="clickable">${time}</td>
-        <td class="clickable" data-notes="${notes}">${activity}</td>
+        <td class="clickable" data-notes="${generateRandomPrompt(gameOption)}">${activity}</td>
       `;
       tableBody.appendChild(newRow);
     }
 
-    // Add some sample schedule entries
-    addScheduleRow('1', '12:00', 'Streaming Rocket League gameplay', 'Remember to have fun!');
-    addScheduleRow('2', '15:00', 'Streaming Tarkov raids', 'Get ready for some intense action!');
-    addScheduleRow('3', '18:00', 'Roblox adventure with viewers', 'Invite viewers to join in on the fun!');
+    // Function to generate a random prompt based on the game option
+    function generateRandomPrompt(gameOption) {
+      switch (gameOption) {
+        case 'Rocket League':
+          var prompts = ['Practice aerial shots and dribbling skills.', 'Work on car control and ball possession.', 'Try out new aerial maneuvers.'];
+          return prompts[Math.floor(Math.random() * prompts.length)];
+        case 'Tarkov':
+          var prompts = ['Plan your loadout and map strategies for the next raid.', 'Explore new areas and gather resources.', 'Team up with friends for tactical operations.'];
+          return prompts[Math.floor(Math.random() * prompts.length)];
+        case 'Roblox':
+          var prompts = ['Design a new game level or avatar customization.', 'Join multiplayer games and collaborate with other players.', 'Learn scripting to create interactive experiences.'];
+          return prompts[Math.floor(Math.random() * prompts.length)];
+        default:
+          return 'Prepare for an exciting gaming session!';
+      }
+    }
+
+    // Add sample schedule entries
+    addScheduleRow('1', '12:00', 'Streaming Rocket League gameplay', 'Rocket League');
+    addScheduleRow('2', '15:00', 'Streaming Tarkov raids', 'Tarkov');
+    addScheduleRow('3', '18:00', 'Roblox adventure with viewers', 'Roblox');
 
     // Functionality for showing popup with notes when clicking on a schedule entry
     var scheduleEntries = document.querySelectorAll('#schedule-table tbody tr');
@@ -165,6 +175,42 @@
       document.getElementById('popup').style.display = 'none';
     });
   </script>
+
+  <style>
+    /* Additional styles for the popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      animation: fadeIn 0.5s ease-in-out; /* Fade in animation */
+      width: 80%; /* Set width to 80% of the screen */
+      height: 80%; /* Set height to 80% of the screen */
+      overflow: auto; /* Enable scrolling if content exceeds height */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
 </body>
 
 </html>
