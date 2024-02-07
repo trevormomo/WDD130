@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Site Plan</title>
+  <title>Redemption's Quest: My Journey as an Underdog Streamer Site Plan</title>
   <link type="text/css" rel="stylesheet" href="styles/site-plan-rafting.css" />
 </head>
 
@@ -12,10 +12,8 @@
     <h1>Redemption's Quest: My Journey as an Underdog Streamer Site Plan</h1>
     <h2>Trevor Thompson</h2>
     <h2>WDD 130-[section]</h2>
-    <!-- In the header above, add the name of your site, your name and class number. For example if you are in section 3 you would put WDD 130-03 -->
   </header>
   <main>
-    <!-- ------------------------Steps 2-5------------------------------ -->
     <hr />
     <h2>Overview</h2>
     <h3>Purpose</h3>
@@ -27,7 +25,6 @@
     <hr />
     <h2>Branding</h2>
     <h3>Website Logo</h3>
-    <!-- Replace this with some sort of logo for your site.  A logo can be as simple as the name of your site in a nice font :) -->
     <img src="images/Logocheese.png" alt="Logo image" style="border-radius: 50%;" />
     <hr />
     <h2>Style Guide</h2>
@@ -48,8 +45,6 @@
     </table>
 
     <h3>Typography</h3>
-    <!-- Choose a font for your paragraphs (body copy) and headlines. What font(s) have you chosen? Think also about which of your colors above you might use for background and font colors. -->
-
     <h4>
       Heading Font: <a href="https://fonts.google.com/specimen/Orbitron" target="_blank">Orbitron</a>
     </h4>
@@ -58,7 +53,6 @@
     </h4>
     
     <h3>Navigation</h3>
-    <!-- Think about how you want your navigation bar to look. In the site-plan.css file change the colors to your colors to get the look you desire. -->
     <nav>
       <a href="#">Home</a>
       <a href="#">Page2</a>
@@ -75,26 +69,26 @@
       <div class="right"></div>
     </div>
     
-    <!-- Additional Categories -->
-    <hr />
-    <h2>Additional Categories</h2>
-    <div class="additional-categories">
-      <h3 class="neon-green">Category 1: Funny Moments</h3>
-      <p>Laugh along with me as I stumble through hilarious in-game moments and epic fails.</p>
-      
-      <h3 class="neon-green">Category 2: Gaming News Updates</h3>
-      <p>Stay informed with the latest gaming news, updates, and rumors.</p>
-      
-      <h3 class="neon-green">Category 3: Viewer Q&A Sessions</h3>
-      <p>Interact with me live as I answer your burning questions and engage with the community.</p>
-      
-      <h3 class="neon-green">Category 4: Strategy Guides</h3>
-      <p>Learn tips, tricks, and strategies to dominate your favorite games and outsmart your opponents.</p>
-      
-      <h3 class="neon-green">Category 5: Charity Streams</h3>
-      <p>Join me in giving back to the community through charity streams supporting worthy causes.</p>
-    </div>
-    
+   <!-- Additional Categories -->
+<hr />
+<h2>Additional Categories</h2>
+<div class="additional-categories">
+  <h3 class="neon-green">Category 1: Funny Moments</h3>
+  <p>Laugh along with me as I stumble through hilarious in-game moments and epic fails. Whether it's an unexpected glitch or a perfectly timed fail, these moments are sure to keep you entertained!</p>
+  
+  <h3 class="neon-green">Category 2: Gaming News Updates</h3>
+  <p>Stay informed with the latest gaming news, updates, and rumors. From new game releases to industry trends, I'll keep you in the loop with everything you need to know about the gaming world.</p>
+  
+  <h3 class="neon-green">Category 3: Viewer Q&A Sessions</h3>
+  <p>Interact with me live as I answer your burning questions and engage with the community. Whether you're curious about my gaming setup or want to know my thoughts on the latest game, I'm here to chat!</p>
+  
+  <h3 class="neon-green">Category 4: Strategy Guides</h3>
+  <p>Learn tips, tricks, and strategies to dominate your favorite games and outsmart your opponents. From mastering advanced techniques to exploiting game mechanics, these guides will help you level up your gameplay.</p>
+  
+  <h3 class="neon-green">Category 5: Charity Streams</h3>
+  <p>Join me in giving back to the community through charity streams supporting worthy causes. While we're not quite there yet, every viewer helps us reach our goal. Together, we can make a difference!</p>
+</div>
+
     <!-- Interactive Timetable -->
  
     <hr />
@@ -118,66 +112,108 @@
     <div id="popup" class="popup">
       <div class="popup-content">
         <span class="close">&times;</span>
-        <h2 id="popup-date"></h2>
-        <p id="popup-notes"></p>
+        <h2 id="popup-date" class="neon-green"></h2>
+        <p id="popup-notes" class="neon-green"></p>
       </div>
     </div>
   </main>
 
   <script>
-    // Function to add a new row to the schedule table
-    function addScheduleRow(day, time, activity, gameOption) {
-      var tableBody = document.querySelector('#schedule-table tbody');
-      var newRow = document.createElement('tr');
-      newRow.innerHTML = `
-        <td class="clickable">${day}</td>
-        <td class="clickable">${time}</td>
-        <td class="clickable" data-notes="${generateRandomPrompt(gameOption)}">${activity}</td>
-      `;
-      tableBody.appendChild(newRow);
+    document.addEventListener("DOMContentLoaded", function() {
+      const streamingSchedule = document.getElementById('schedule-table');
+      const popup = document.getElementById('popup');
+      const popupDate = document.getElementById('popup-date');
+      const popupNotes = document.getElementById('popup-notes');
+
+      // Initialize schedule if not already present in local storage
+      if (!localStorage.getItem('schedule')) {
+        initializeSchedule();
+      }
+
+      const schedule = JSON.parse(localStorage.getItem('schedule'));
+
+      // Render schedule
+      renderSchedule(schedule);
+
+      // Click event listener for showing notes
+      streamingSchedule.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.classList.contains('clickable')) {
+          const notes = target.getAttribute('data-notes');
+          popupDate.textContent = 'Notes for ' + target.parentElement.querySelector('td:nth-child(1)').textContent;
+          popupNotes.textContent = notes;
+          popup.style.display = 'block';
+        }
+      });
+
+      // Click event listener for updating notes randomly
+      popup.addEventListener('click', function() {
+        const activeEntry = streamingSchedule.querySelector('tr.active');
+        if (activeEntry) {
+          const gameOption = activeEntry.querySelector('.clickable').getAttribute('data-game');
+          const notes = generateRandomPrompt(gameOption);
+          popupNotes.textContent = notes;
+        }
+      });
+
+      // Close popup event listener
+      popup.querySelector('.close').addEventListener('click', function() {
+        popup.style.display = 'none';
+      });
+    });
+
+    // Initialize the schedule for the following year
+    function initializeSchedule() {
+      const schedule = [];
+      const startDate = new Date(); // Get today's date
+      startDate.setFullYear(startDate.getFullYear() + 1); // Set to next year
+
+      // Generate schedule for each day of the year
+      for (let i = 0; i < 365; i++) {
+        const currentDate = new Date(startDate.getTime());
+        currentDate.setDate(currentDate.getDate() + i); // Increment date
+        schedule.push({
+          date: currentDate.toISOString().split('T')[0], // Format as YYYY-MM-DD
+          time: '12:00', // Default time
+          activity: 'Scheduled Activity',
+          gameOption: 'General' // Default game option
+        });
+      }
+
+      localStorage.setItem('schedule', JSON.stringify(schedule));
+    }
+
+    // Render schedule
+    function renderSchedule(schedule) {
+      const streamingSchedule = document.getElementById('schedule-table').querySelector('tbody');
+
+      schedule.forEach(entry => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td class="clickable">${new Date(entry.date).getDate()}</td>
+          <td class="clickable">${entry.time}</td>
+          <td class="clickable" data-notes="${generateRandomPrompt(entry.gameOption)}">${entry.activity}</td>
+        `;
+        streamingSchedule.appendChild(newRow);
+      });
     }
 
     // Function to generate a random prompt based on the game option
     function generateRandomPrompt(gameOption) {
       switch (gameOption) {
         case 'Rocket League':
-          var prompts = ['Practice aerial shots and dribbling skills.', 'Work on car control and ball possession.', 'Try out new aerial maneuvers.'];
-          return prompts[Math.floor(Math.random() * prompts.length)];
+          return 'Practice aerial shots and dribbling skills.';
         case 'Tarkov':
-          var prompts = ['Plan your loadout and map strategies for the next raid.', 'Explore new areas and gather resources.', 'Team up with friends for tactical operations.'];
-          return prompts[Math.floor(Math.random() * prompts.length)];
+          return 'Plan your loadout and map strategies for the next raid.';
         case 'Roblox':
-          var prompts = ['Design a new game level or avatar customization.', 'Join multiplayer games and collaborate with other players.', 'Learn scripting to create interactive experiences.'];
-          return prompts[Math.floor(Math.random() * prompts.length)];
+          return 'Design a new game level or avatar customization.';
         default:
           return 'Prepare for an exciting gaming session!';
       }
     }
-
-    // Add sample schedule entries
-    addScheduleRow('1', '12:00', 'Streaming Rocket League gameplay', 'Rocket League');
-    addScheduleRow('2', '15:00', 'Streaming Tarkov raids', 'Tarkov');
-    addScheduleRow('3', '18:00', 'Roblox adventure with viewers', 'Roblox');
-
-    // Functionality for showing popup with notes when clicking on a schedule entry
-    var scheduleEntries = document.querySelectorAll('#schedule-table tbody tr');
-    scheduleEntries.forEach(function (entry) {
-      entry.addEventListener('click', function () {
-        var notes = this.querySelector('td').getAttribute('data-notes');
-        document.getElementById('popup-date').textContent = 'Notes for ' + this.querySelector('td:nth-child(1)').textContent;
-        document.getElementById('popup-notes').textContent = notes;
-        document.getElementById('popup').style.display = 'block';
-      });
-    });
-
-    // Functionality for closing the popup
-    document.querySelector('.close').addEventListener('click', function () {
-      document.getElementById('popup').style.display = 'none';
-    });
   </script>
 
   <style>
-    /* Additional styles for the popup */
     .popup {
       display: none;
       position: fixed;
@@ -189,10 +225,10 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       z-index: 9999;
-      animation: fadeIn 0.5s ease-in-out; /* Fade in animation */
-      width: 80%; /* Set width to 80% of the screen */
-      height: 80%; /* Set height to 80% of the screen */
-      overflow: auto; /* Enable scrolling if content exceeds height */
+      animation: fadeIn 0.5s ease-in-out;
+      width: 80%;
+      height: 80%;
+      overflow: auto;
     }
 
     @keyframes fadeIn {
@@ -209,6 +245,10 @@
       top: 10px;
       right: 10px;
       cursor: pointer;
+    }
+
+    .neon-green {
+      color: #00ff00;
     }
   </style>
 </body>

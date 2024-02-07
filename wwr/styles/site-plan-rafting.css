@@ -127,15 +127,6 @@ nav a:hover {
   border-right: 1px solid;
 }
 
-/* Hover animation for pushable icons */
-.pushable-icon {
-  transition: transform 0.3s ease; /* smooth hover effect */
-}
-
-.pushable-icon:hover {
-  transform: scale(1.1); /* slight scale increase on hover */
-}
-
 /* Additional animations */
 
 /* Glowing effect on hover */
