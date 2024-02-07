@@ -11,7 +11,9 @@
   /* Font variables */
   --heading-font: 'Orbitron', sans-serif;
   --paragraph-font: 'Roboto', sans-serif;
-
+  #popup-date {
+    color: red;
+  }
   /* Color scheme variables */
   --headline-color-on-white: #ffffff; /* White */
   --headline-color-on-color: #ffffff; /* White */

@@ -1,82 +1,79 @@
 document.addEventListener("DOMContentLoaded", function() {
     const streamingSchedule = document.getElementById('schedule-table');
-    const popup = document.getElementById('popup');
+    const popup = document.getElementById('popup'); // Corrected document.('popup') to document.getElementById('popup')
     const popupDate = document.getElementById('popup-date');
     const popupNotes = document.getElementById('popup-notes');
 
-    streamingSchedule.querySelectorAll('.clickable').forEach(function(entry) {
-        entry.addEventListener('click', function() {
-            const notes = this.getAttribute('data-notes');
-            const scheduledGame = this.getAttribute('data-game');
-            popupDate.textContent = 'Notes for ' + getScheduledGameHTML(scheduledGame);
-            popupNotes.textContent = notes;
-            popup.style.display = 'block';
-        });
-    });
+    // Initialize schedule if not already present in local storage
+    if (!localStorage.getItem('schedule')) {
+        initializeSchedule();
+    }
+    const schedule = JSON.parse(localStorage.getItem('schedule'));
 
-    popup.addEventListener('click', function () {
-        const activeEntry = streamingSchedule.querySelector('tr.active');
-        if (activeEntry) {
-            const gameOption = activeEntry.querySelector('.clickable').getAttribute('data-game');
-            const notes = generateRandomPrompt(gameOption); // Ensure generateRandomPrompt is accessible
-            popupNotes.textContent = notes;
+    // Render schedule
+    function renderSchedule(schedule) {
+        const streamingSchedule = document.getElementById('schedule-table').querySelector('tbody');
+        schedule.forEach(entry => {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td class="clickable">${new Date(entry.date).getDate()}</td>
+                <td class="clickable">${entry.time}</td>
+                <td class="clickable" data-notes="${new Date(entry.date).getDate()}-${entry.gameOption}">1/6 Games</td>
+            `;
+            streamingSchedule.appendChild(newRow);
+        });
+    }
+
+    // Click event listener for showing notes
+    streamingSchedule.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.classList.contains('clickable')) {
+            const notes = target.getAttribute('data-notes');
+            const [day, gameOption] = notes.split('-');
+            popupDate.textContent = `Notes for Day ${day}`;
+            // Update popupNotes text content
+            popupNotes.textContent = `Game: ${gameOption}`;
+
+            // Display the popup
+            popup.style.display = 'block';
         }
     });
 
+    // Close popup event listener
     popup.querySelector('.close').addEventListener('click', function() {
         popup.style.display = 'none';
     });
 
-    addScheduleRow('1', '12:00', 'Streaming Rocket League gameplay', 'Rocket League');
-    addScheduleRow('2', '15:00', 'Streaming Tarkov raids', 'Tarkov');
-    addScheduleRow('3', '18:00', 'Roblox adventure with viewers', 'Roblox');
-});
+    // Initialize the schedule for the following year
+    function initializeSchedule() {
+        const schedule = [];
+        const startDate = new Date();
+        startDate.setFullYear(startDate.getFullYear() + 1);
 
-function addScheduleRow(day, time, activity, gameOption) {
-    const streamingSchedule = document.getElementById('schedule-table');
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-      <td class="clickable">${day}</td>
-      <td class="clickable">${time}</td>
-      <td class="clickable" data-game="${gameOption}" data-notes="${generateRandomPrompt(gameOption)}">${activity}</td>
-    `;
-    streamingSchedule.querySelector('tbody').appendChild(newRow);
-}
+        // Define game options
+        const gameOptions = ['Phasmophobia', 'Lethal Company', 'Rocket League', 'Tarkov', 'League of Legends', 'Modded Minecraft'];
 
-function generateRandomPrompt(gameOption) {
-    switch (gameOption) {
-        case 'Rocket League':
-            const rocketLeaguePrompts = [
-                'Focus on improving your aerial shots.',
-                'Work on your dribbling skills.',
-                'Try out some new car designs.',
-                'Practice fast aerials for better positioning.',
-                'Experiment with different camera settings.'
-            ];
-            return rocketLeaguePrompts[Math.floor(Math.random() * rocketLeaguePrompts.length)];
-        case 'Tarkov':
-            const tarkovPrompts = [
-                'Plan your loadout carefully for the next raid.',
-                'Study the maps to find the best routes.',
-                'Practice your aim in offline mode.',
-                'Try out different tactics for approaching engagements.',
-                'Watch some tutorials to improve your gameplay.'
-            ];
-            return tarkovPrompts[Math.floor(Math.random() * tarkovPrompts.length)];
-        case 'Roblox':
-            const robloxPrompts = [
-                'Design a new game level for your viewers.',
-                'Customize your avatar to stand out.',
-                'Explore new games with your viewers.',
-                'Create challenges for your audience to participate in.',
-                'Work on scripting to enhance your games.'
-            ];
-            return robloxPrompts[Math.floor(Math.random() * robloxPrompts.length)];
-        default:
-            return 'Prepare for an exciting gaming session!';
+        // Generate schedule for each day of the year
+        for (let i = 0; i < 365; i++) {
+            const currentDate = new Date(startDate.getTime());
+            currentDate.setDate(currentDate.getDate() + i);
+            const gameOption = gameOptions[Math.floor(Math.random() * gameOptions.length)];
+            schedule.push({
+                date: currentDate.toISOString().split('T')[0],
+                time: '12:00',
+                activity: gameOption,
+                gameOption: gameOption
+            });
+        }
+        localStorage.setItem('schedule', JSON.stringify(schedule));
     }
-}
 
-function getScheduledGameHTML(gameName) {
-    return `<span style="color: red;">${gameName}</span>`;
-}
+    // Function to generate a random game option
+    function generateRandomGameOption() {
+        const options = ['Phasmophobia', 'Lethal Company', 'Rocket League', 'Tarkov', 'League of Legends', 'Modded Minecraft'];
+        return options[Math.floor(Math.random() * options.length)];
+    }
+
+    // Render schedule
+    renderSchedule(schedule);
+});

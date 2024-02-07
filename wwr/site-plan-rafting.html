@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
   <meta charset="utf-8" />
   <title>Redemption's Quest: My Journey as an Underdog Streamer Site Plan</title>
   <link type="text/css" rel="stylesheet" href="styles/site-plan-rafting.css" />
 </head>
-
 <body>
   <header>
     <h1>Redemption's Quest: My Journey as an Underdog Streamer Site Plan</h1>
@@ -18,17 +16,14 @@
     <h2>Overview</h2>
     <h3>Purpose</h3>
     <p>In this vast digital realm where dreams collide and competition thrives, I stand at the crossroads of ambition and uncertainty. As a streamer venturing through the realms of Rocket League, Tarkov, and Roblox, I can't help but wonder: am I truly the <span class="bouncing">worst</span> streamer out there?</p>
-
     <h3>Audience</h3>
     <p>Join me on this quest for redemption. Through victories and defeats, highs and lows, my stream becomes a testament to the resilience of the human spirit. Will I rise above my self-doubt and carve out a niche in the streaming world, or will I succumb to the shadows of defeat? The stage is set, and the world watches eagerly as I navigate the treacherous path towards <span class="rotating">greatness</span>.</p>
-
     <hr />
     <h2>Branding</h2>
     <h3>Website Logo</h3>
     <img src="images/Logocheese.png" alt="Logo image" style="border-radius: 50%;" />
     <hr />
     <h2>Style Guide</h2>
-
     <table class="colors">
       <tr>
         <th>Primary</th>
@@ -43,7 +38,6 @@
         <td class="accent2">[#381D2A]</td>
       </tr>
     </table>
-
     <h3>Typography</h3>
     <h4>
       Heading Font: <a href="https://fonts.google.com/specimen/Orbitron" target="_blank">Orbitron</a>
@@ -51,7 +45,6 @@
     <h4>
       Paragraph Font: <a href="https://fonts.google.com/specimen/Roboto" target="_blank">Roboto</a>
     </h4>
-    
     <h3>Navigation</h3>
     <nav>
       <a href="#">Home</a>
@@ -68,29 +61,22 @@
       <div class="left"></div>
       <div class="right"></div>
     </div>
-    
-   <!-- Additional Categories -->
-<hr />
-<h2>Additional Categories</h2>
-<div class="additional-categories">
-  <h3 class="neon-green">Category 1: Funny Moments</h3>
-  <p>Laugh along with me as I stumble through hilarious in-game moments and epic fails. Whether it's an unexpected glitch or a perfectly timed fail, these moments are sure to keep you entertained!</p>
-  
-  <h3 class="neon-green">Category 2: Gaming News Updates</h3>
-  <p>Stay informed with the latest gaming news, updates, and rumors. From new game releases to industry trends, I'll keep you in the loop with everything you need to know about the gaming world.</p>
-  
-  <h3 class="neon-green">Category 3: Viewer Q&A Sessions</h3>
-  <p>Interact with me live as I answer your burning questions and engage with the community. Whether you're curious about my gaming setup or want to know my thoughts on the latest game, I'm here to chat!</p>
-  
-  <h3 class="neon-green">Category 4: Strategy Guides</h3>
-  <p>Learn tips, tricks, and strategies to dominate your favorite games and outsmart your opponents. From mastering advanced techniques to exploiting game mechanics, these guides will help you level up your gameplay.</p>
-  
-  <h3 class="neon-green">Category 5: Charity Streams</h3>
-  <p>Join me in giving back to the community through charity streams supporting worthy causes. While we're not quite there yet, every viewer helps us reach our goal. Together, we can make a difference!</p>
-</div>
-
+    <!-- Additional Categories -->
+    <hr />
+    <h2>Additional Categories</h2>
+    <div class="additional-categories">
+      <h3 class="neon-green">Category 1: Funny Moments</h3>
+      <p>Laugh along with me as I stumble through hilarious in-game moments and epic fails. Whether it's an unexpected glitch or a perfectly timed fail, these moments are sure to keep you entertained!</p>
+      <h3 class="neon-green">Category 2: Gaming News Updates</h3>
+      <p>Stay informed with the latest gaming news, updates, and rumors. From new game releases to industry trends, I'll keep you in the loop with everything you need to know about the gaming world.</p>
+      <h3 class="neon-green">Category 3: Viewer Q&A Sessions</h3>
+      <p>Interact with me live as I answer your burning questions and engage with the community. Whether you're curious about my gaming setup or want to know my thoughts on the latest game, I'm here to chat!</p>
+      <h3 class="neon-green">Category 4: Strategy Guides</h3>
+      <p>Learn tips, tricks, and strategies to dominate your favorite games and outsmart your opponents. From mastering advanced techniques to exploiting game mechanics, these guides will help you level up your gameplay.</p>
+      <h3 class="neon-green">Category 5: Charity Streams</h3>
+      <p>Join me in giving back to the community through charity streams supporting worthy causes. While we're not quite there yet, every viewer helps us reach our goal. Together, we can make a difference!</p>
+    </div>
     <!-- Interactive Timetable -->
- 
     <hr />
     <h2>Streaming Schedule</h2>
     <div class="timetable">
@@ -107,7 +93,6 @@
         </tbody>
       </table>
     </div>
-
     <!-- Popup for showing notes -->
     <div id="popup" class="popup">
       <div class="popup-content">
@@ -117,76 +102,67 @@
       </div>
     </div>
   </main>
-
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const streamingSchedule = document.getElementById('schedule-table');
       const popup = document.getElementById('popup');
       const popupDate = document.getElementById('popup-date');
       const popupNotes = document.getElementById('popup-notes');
-
       // Initialize schedule if not already present in local storage
       if (!localStorage.getItem('schedule')) {
         initializeSchedule();
       }
-
       const schedule = JSON.parse(localStorage.getItem('schedule'));
-
       // Render schedule
       renderSchedule(schedule);
-
       // Click event listener for showing notes
       streamingSchedule.addEventListener('click', function(event) {
         const target = event.target;
         if (target.classList.contains('clickable')) {
           const notes = target.getAttribute('data-notes');
-          popupDate.textContent = 'Notes for ' + target.parentElement.querySelector('td:nth-child(1)').textContent;
+          const day = target.parentElement.querySelector('td:nth-child(1)').textContent;
+          popupDate.textContent = `gameOption`;
           popupNotes.textContent = notes;
           popup.style.display = 'block';
         }
       });
-
+      
       // Click event listener for updating notes randomly
       popup.addEventListener('click', function() {
         const activeEntry = streamingSchedule.querySelector('tr.active');
         if (activeEntry) {
-          const gameOption = activeEntry.querySelector('.clickable').getAttribute('data-game');
-          const notes = generateRandomPrompt(gameOption);
+          const day = activeEntry.querySelector('td:nth-child(1)').textContent;
+          const notes = generateRandomPrompt(schedule[parseInt(day) - 1].gameOption);
           popupNotes.textContent = notes;
         }
       });
-
       // Close popup event listener
       popup.querySelector('.close').addEventListener('click', function() {
         popup.style.display = 'none';
       });
     });
-
     // Initialize the schedule for the following year
     function initializeSchedule() {
       const schedule = [];
       const startDate = new Date(); // Get today's date
       startDate.setFullYear(startDate.getFullYear() + 1); // Set to next year
-
       // Generate schedule for each day of the year
       for (let i = 0; i < 365; i++) {
         const currentDate = new Date(startDate.getTime());
         currentDate.setDate(currentDate.getDate() + i); // Increment date
+        const gameOption = generateRandomGameOption(); // Generate random game option
         schedule.push({
           date: currentDate.toISOString().split('T')[0], // Format as YYYY-MM-DD
           time: '12:00', // Default time
-          activity: 'Scheduled Activity',
-          gameOption: 'General' // Default game option
+          activity: 'generateRandomGameOption();',
+          gameOption: gameOption
         });
       }
-
       localStorage.setItem('schedule', JSON.stringify(schedule));
     }
-
     // Render schedule
     function renderSchedule(schedule) {
       const streamingSchedule = document.getElementById('schedule-table').querySelector('tbody');
-
       schedule.forEach(entry => {
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
@@ -197,22 +173,25 @@
         streamingSchedule.appendChild(newRow);
       });
     }
-
     // Function to generate a random prompt based on the game option
     function generateRandomPrompt(gameOption) {
       switch (gameOption) {
         case 'Rocket League':
-          return 'Practice aerial shots and dribbling skills.';
+          return 'Focus on improving your aerial shots.';
         case 'Tarkov':
-          return 'Plan your loadout and map strategies for the next raid.';
+          return 'Plan your loadout carefully for the next raid.';
         case 'Roblox':
-          return 'Design a new game level or avatar customization.';
+          return 'Design a new game level for your viewers.';
         default:
           return 'Prepare for an exciting gaming session!';
       }
     }
+    // Function to generate a random game option
+    function generateRandomGameOption() {
+      const options = ['Rocket League', 'Tarkov', 'Roblox'];
+      return options[Math.floor(Math.random() * options.length)];
+    }
   </script>
-
   <style>
     .popup {
       display: none;
@@ -230,7 +209,6 @@
       height: 80%;
       overflow: auto;
     }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -239,18 +217,15 @@
         opacity: 1;
       }
     }
-
     .close {
       position: absolute;
       top: 10px;
       right: 10px;
       cursor: pointer;
     }
-
     .neon-green {
       color: #00ff00;
     }
   </style>
 </body>
-
 </html>
