@@ -1,0 +1,73 @@
+/* Reset some basic elements */
+body, h1, h2, p, ul, li, nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Body and Global Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto for body text */
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #6441A5 0%, #e52d27 50%, #004D91 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation Menu Styles */
+nav ul {
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: #121212;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat for headings */
+    font-weight: 700;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

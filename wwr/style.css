@@ -1,0 +1,105 @@
+/* Base Reset */
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif; /* Updated font family */
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Bright text */
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  background: linear-gradient(145deg, #0f9d58, #00c1d4);
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif; /* New font for headers */
+}
+
+nav ul {
+  list-style: none;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 7px 15px;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+main, footer {
+  font-family: 'Open Sans', sans-serif; /* Ensures consistency */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif; /* Applies Poppins to all headings */
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.service-option {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  padding: 20px;
+  margin: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 196, 164, 0.5);
+}
+
+.price {
+  background-color: #0f9d58;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul li {
+      display: block;
+      margin: 10px 0;
+  }
+
+  .services {
+      flex-direction: column;
+      align-items: center;
+  }
+}
