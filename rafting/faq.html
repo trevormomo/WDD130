@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green River Rafting Company - FAQ</title>
+  <meta name="description" content="Frequently Asked Questions at The Green River Rafting Company. Find answers to common queries about rafting adventures, preparation, and policies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img class="logo" src="images/logo4.png" alt="Green River Rafting Logo" width="250">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Rafts & Pricing</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="faq-section">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-container">
+          <div class="faq">
+            <button class="faq-question">What do I need to bring for my rafting trip?</button>
+            <div class="faq-answer">
+              <p>Essentials include sunscreen, water, snacks, and suitable clothing. A more detailed list will be provided upon booking.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">Are there age restrictions for rafting trips?</button>
+            <div class="faq-answer">
+              <p>Yes, for safety reasons, participants must be at least 6 years old for our calm water trips and at least 12 years old for white water rafting.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">How experienced do I need to be?</button>
+            <div class="faq-answer">
+              <p>No prior rafting experience is necessary for our calm water trips. For white water rafting, we recommend some experience, but it is not required.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">What safety measures are in place?</button>
+            <div class="faq-answer">
+              <p>All our guides are certified in first aid and river rescue. We provide life jackets and helmets and conduct a safety briefing before every trip.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">Can I book a private trip?</button>
+            <div class="faq-answer">
+              <p>Yes, private trips can be arranged. Please contact us for more details and to discuss your specific needs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+     <footer>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/" class="social-icon" target="_blank">
+          <img src="images/fb.png" alt="Facebook">
+        </a>
+        <a href="https://www.twitter.com/" class="social-icon" target="_blank">
+          <img src="images/twitter.png" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com/" class="social-icon" target="_blank">
+          <img src="images/insta.png" alt="Instagram">
+        </a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqAnswer = button.nextElementSibling;
+        button.classList.toggle('active');
+        if (button.classList.contains('active')) {
+          faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+        } else {
+          faqAnswer.style.maxHeight = '0';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
