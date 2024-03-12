@@ -2,15 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Green River Rafting Company - FAQ</title>
   <meta name="description" content="Frequently Asked Questions at The Green River Rafting Company. Find answers to common queries about rafting adventures, preparation, and policies.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="page">
@@ -25,6 +19,33 @@
       </nav>
     </header>
     <main>
+       <script>
+      // Wait for the DOM content to load before attaching event listeners
+document.addEventListener('DOMContentLoaded', function () {
+  // Select all FAQ questions
+  var faqQuestions = document.querySelectorAll('.faq-question');
+
+  // Loop through each FAQ question and attach a click event listener
+  faqQuestions.forEach(function (question) {
+    question.addEventListener('click', function () {
+      // Toggle the 'active' class on the clicked question
+      question.classList.toggle('active');
+
+      // Select the corresponding FAQ answer
+      var answer = question.nextElementSibling;
+
+      // Toggle the display of the answer
+      if (question.classList.contains('active')) {
+        // If the question is active, show the answer
+        answer.style.display = 'block';
+      } else {
+        // If the question is not active, hide the answer
+        answer.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
       <section class="faq-section">
         <h1>Frequently Asked Questions</h1>
         <div class="faq-container">
@@ -75,18 +96,6 @@
       </div>
     </footer>
   </div>
-  <script>
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const faqAnswer = button.nextElementSibling;
-        button.classList.toggle('active');
-        if (button.classList.contains('active')) {
-          faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-        } else {
-          faqAnswer.style.maxHeight = '0';
-        }
-      });
-    });
-  </script>
+  <script src="js/faq.js"></script>
 </body>
 </html>
