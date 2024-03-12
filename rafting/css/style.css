@@ -6,13 +6,11 @@
   --light-bg: #EAEAEA;
   --border-color: #CCCCCC;
   --text-color: #333;
-  --text-light: #FFFFFF;
+  --text-light: #000000;
   --font-primary: 'Barlow Condensed', sans-serif;
   --font-secondary: 'Montserrat', sans-serif;
   --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
   --transition-speed: 0.3s ease;
-}
-
 *,
 *::before,
 *::after {
@@ -224,6 +222,34 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-item {
+  margin-bottom: 20px; /* Adjust spacing between stacked items */
+  text-align: center;
+  width: 35%; /* Set width to 35% of the screen width */
+}
+
+.feature-item img {
+  max-width: 100%; /* Ensure images don't exceed container width */
+  width: 100%; /* Ensure images take up the full width of their container */
+}
 /* FAQ Section with Toggle Animation */
 .faq-item {
   margin: 10px 0;
@@ -265,4 +291,130 @@ footer {
   .questions {
     grid-template-columns: 1fr;
   }
+}
+.pricing-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.pricing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.pricing-img img {
+  width: 35%; /* Adjust the width as needed */
+}
+
+.pricing-info {
+  width: 60%; /* Adjust the width as needed */
+  padding-left: 20px;
+}
+
+/* Adjustments for responsiveness */
+@media screen and (max-width: 768px) {
+  .pricing-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .pricing-info {
+      width: 100%;
+      padding-left: 0;
+      margin-top: 20px;
+  }
+}
+main {
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Apply styles to hero section */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: #5c2b2b; /* Text color */
+  padding: 100px 0; /* Adjust as needed */
+}.pricing-table {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  gap: 20px; /* Adjust spacing between articles */
+}
+
+/* Apply styles to each raft option */
+.raft-option {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  background-color: #f5f5f5; /* Background color */
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%; /* Take full width */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Apply styles to raft image */
+.raft-img img {
+  max-width: 70%; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 10px; /* Add some space between image and info */
+}
+/* Apply styles to pricing table */
+.pricing-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Adjust spacing between groups */
+}
+
+/* Apply styles to each raft group */
+.raft-group {
+  width: 100%;
+  max-width: 960px; /* Adjust maximum width as needed */
+}
+
+/* Apply styles to each raft option */
+.raft-option {
+  display: flex;
+  flex-direction: row; /* Make the option items align in a row */
+  background-color: #ffffff; /* Background color */
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Apply styles to raft image */
+.raft-img {
+  flex: 0 0 auto; /* Make sure the image doesn't grow or shrink */
+  margin-right: 20px; /* Adjust spacing between image and text */
+}
+.FAQBG {
+  background-image: url('/rafting/images/FAQBG.png');
+  background-size: cover;
+  background-position: center;
+  /* Other styling for the FAQ background */
+}
+
+
+.raft-img img {
+  max-width: 100%; /* Adjust image width */
+  height: auto;
+}
+
+/* Apply styles to raft info */
+.raft-info {
+  flex: 1; /* Make the text take up the remaining space */
 }
