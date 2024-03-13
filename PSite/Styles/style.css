@@ -13,14 +13,20 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Header Styles */
 header {
-    background: linear-gradient(90deg, #6441A5 0%, #e52d27 50%, #004D91 100%);
+    background-color: #6441A5; /* Purple */
     color: white;
     padding: 20px;
     text-align: center;
+    animation: fadeInDown 1s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Navigation Menu Styles */
@@ -44,30 +50,89 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: white;
-    color: #121212;
+    background-color: #e52d27; /* Red */
 }
 
 /* Main Content Styles */
 main {
     padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 section {
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1, h2 {
     font-family: 'Montserrat', sans-serif; /* Use Montserrat for headings */
     font-weight: 700;
+    text-align: center;
 }
 
+/* Footer Styles */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
+    animation: fadeInUp 1s ease-in-out;
     width: 100%;
+    box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Games Styles */
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game {
+    width: 200px;
+    text-align: center;
+}
+
+.game img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.game img:hover {
+    transform: scale(1.05);
+}
+
+.game-name {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
 }

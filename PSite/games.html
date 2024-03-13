@@ -4,7 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games - Your Name</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Styles/style.css">
+    <style>
+         /* Games Styles */
+         body {
+            font-family: 'Arial', sans-serif; /* Use Arial or any other default font */
+        }
+
+        .games-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .game {
+            width: 200px;
+            text-align: center;
+        }
+
+        .game img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .game img:hover {
+            transform: scale(1.05);
+        }
+
+        .game-name {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        #game-dev {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive; /* Use Press Start 2P or any other streamer-style font */
+            color: #fff; /* Change font color to white */
+        }
+
+        #game-dev h2 {
+            font-size: 2em; /* Increase font size for headings */
+            margin-bottom: 20px; /* Add space below headings */
+        }
+
+        #game-dev p {
+            font-size: 1.2em; /* Increase font size for paragraphs */
+            margin-bottom: 15px; /* Add space below paragraphs */
+        }
+
+        #game-dev ul {
+            list-style: none; /* Remove default list styles */
+            padding: 0; /* Remove default padding */
+            margin-top: 30px; /* Add space above the list */
+        }
+
+        #game-dev li {
+            margin-bottom: 30px; /* Add space between list items */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,43 +80,114 @@
         </nav>
     </header>
     <main>
-        <section>
+        
+        <section id="games">
             <h2>Games I Play</h2>
             <p>Explore the diverse array of games I enjoy streaming and playing:</p>
-            <form action="vote.php" method="post">
-                <ul>
-                    <li><input type="checkbox" name="game[]" value="Rocket League"> Rocket League</li>
-                    <li><input type="checkbox" name="game[]" value="Phasmophobia"> Phasmophobia</li>
-                    <li><input type="checkbox" name="game[]" value="Minecraft"> Minecraft</li>
-                    <li><input type="checkbox" name="game[]" value="League of Legends / Teamfight Tactics"> League of Legends / Teamfight Tactics</li>
-                    <li><input type="checkbox" name="game[]" value="Helldivers 2"> Helldivers 2</li>
-                    <li><input type="checkbox" name="game[]" value="Overwatch"> Overwatch</li>
-                    <li><input type="checkbox" name="game[]" value="Palworld"> Palworld</li>
-                    <li><input type="checkbox" name="game[]" value="Golf with Friends"> Golf with Friends</li>
-                    <li><input type="checkbox" name="game[]" value="World of Goo"> World of Goo</li>
-                    <li><input type="checkbox" name="game[]" value="Planetside 2"> Planetside 2</li>
-                    <li><input type="checkbox" name="game[]" value="The entire Sid Meier's Collection (e.g., Civilization series)"> The entire Sid Meier's Collection (e.g., Civilization series)</li>
-                    <li><input type="checkbox" name="game[]" value="Beat Saber"> Beat Saber</li>
-                    <li><input type="checkbox" name="game[]" value="Killing Floor 2"> Killing Floor 2</li>
-                    <li><input type="checkbox" name="game[]" value="TheHunter: Call of the Wild"> TheHunter: Call of the Wild</li>
-                    <li><input type="checkbox" name="game[]" value="Payday 2"> Payday 2</li>
-                    <li><input type="checkbox" name="game[]" value="Team Fortress 2"> Team Fortress 2</li>
-                    <li><input type="checkbox" name="game[]" value="Stick Fight: The Game"> Stick Fight: The Game</li>
-                    <li><input type="checkbox" name="game[]" value="Valheim"> Valheim</li>
-                </ul>
-                <button type="submit">Submit Vote</button>
-            </form>
-            <div id="voting-results">
-                <!-- Voting results will be displayed here -->
+            <div class="games-list">
+                <!-- Insert all game images here -->
+                <div class="game">
+                    <img src="images/beat saber.jpg" alt="Beat Saber">
+                    <p class="game-name">Beat Saber</p>
+                </div>
+                <div class="game">
+                    <img src="images/golf with friends.jpg" alt="Golf with Friends">
+                    <p class="game-name">Golf with Friends</p>
+                </div>
+                <div class="game">
+                    <img src="images/Helldivers 2.jpg" alt="Helldivers 2">
+                    <p class="game-name">Helldivers 2</p>
+                </div>
+                <div class="game">
+                    <img src="images/KF2.jpg" alt="Killing Floor 2">
+                    <p class="game-name">Killing Floor 2</p>
+                </div>
+                <div class="game">
+                    <img src="images/LOL.jpg" alt="League of Legends">
+                    <p class="game-name">League of Legends</p>
+                </div>
+                <div class="game">
+                    <img src="images/minecraft.jpg" alt="Minecraft">
+                    <p class="game-name">Minecraft</p>
+                </div>
+                <div class="game">
+                    <img src="images/overwatch 2.jpg" alt="Overwatch 2">
+                    <p class="game-name">Overwatch 2</p>
+                </div>
+                <div class="game">
+                    <img src="images/palworld.jpg" alt="Palworld">
+                    <p class="game-name">Palworld</p>
+                </div>
+                <div class="game">
+                    <img src="images/Payday 2.jpg" alt="Payday 2">
+                    <p class="game-name">Payday 2</p>
+                </div>
+                <div class="game">
+                    <img src="images/phasmophobia.jpg" alt="Phasmophobia">
+                    <p class="game-name">Phasmophobia</p>
+                </div>
+                <div class="game">
+                    <img src="images/planet side 2.jpg" alt="Planet Side 2">
+                    <p class="game-name">Planet Side 2</p>
+                </div>
+                <div class="game">
+                    <img src="images/Rocketleague.jpg" alt="Rocket League">
+                    <p class="game-name">Rocket League</p>
+                </div>
+                <div class="game">
+                    <img src="images/Sid meirs.jpg" alt="Sid Meier's Collection">
+                    <p class="game-name">Sid Meier's Collection</p>
+                </div>
+                <div class="game">
+                    <img src="images/Stickfight.jpg" alt="Stick Fight: The Game">
+                    <p class="game-name">Stick Fight: The Game</p>
+                </div>
+                <div class="game">
+                    <img src="images/TF2.jpg" alt="Team Fortress 2">
+                    <p class="game-name">Team Fortress 2</p>
+                </div>
+                <div class="game">
+                    <img src="images/thehunter.jpg" alt="TheHunter: Call of the Wild">
+                    <p class="game-name">TheHunter: Call of the Wild</p>
+                </div>
+                <div class="game">
+                    <img src="images/velheim.jpg" alt="Valheim">
+                    <p class="game-name">Valheim</p>
+                </div>
+                <div class="game">
+                    <img src="images/world of goo.jpg" alt="World of Goo">
+                    <p class="game-name">World of Goo</p>
+                </div>
             </div>
-        </section>
-        <section>
-            <h2>Game Development</h2>
-            <p>As a passionate gamer and streamer, I also dabble in game development. I enjoy creating immersive experiences, particularly in the realm of VR gaming. Stay tuned for updates on my latest projects and creations!</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+            <section id="games">
+            </section>
+            <section id="game-dev">
+                <h2>Game Development</h2>
+                <p>As a passionate gamer and streamer, I also dabble in game development. I enjoy creating immersive experiences, particularly in the realm of VR gaming. Stay tuned for updates on my latest projects and creations!</p>
+                <p>Here are some of the projects I'm currently working on:</p>
+                <ul>
+                    <li>
+                        <h3>Project 1: Virtual Reality Adventure</h3>
+                        <p>Embark on a thrilling virtual reality adventure where you'll explore ancient ruins, solve puzzles, and uncover hidden treasures. This project is still in the early stages of development, but I'm excited to share more details soon!</p>
+                    </li>
+                    <li>
+                        <h3>Project 2: Multiplayer Sandbox Game</h3>
+                        <p>Join a vibrant multiplayer sandbox world where creativity knows no bounds. Build, explore, and interact with other players in this immersive online experience. Keep an eye out for beta testing opportunities!</p>
+                    </li>
+                    <li>
+                        <h3>Project 3: Story-Driven RPG</h3>
+                        <p>Immerse yourself in an epic story-driven RPG set in a fantasy world filled with magic, monsters, and intrigue. Make crucial choices, forge alliances, and shape the fate of the realm in this captivating adventure.</p>
+                    </li>
+                    <li>
+                        <h3>Project 4: Retro-Inspired Platformer</h3>
+                        <p>Step into the pixelated world of a retro-inspired platformer where nostalgia meets modern gameplay mechanics. Traverse challenging levels, discover hidden secrets, and relive the golden age of gaming.</p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </footer>
+    </body>
+    </html>
+            

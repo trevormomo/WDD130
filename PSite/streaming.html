@@ -5,10 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Streaming - Your Name</title>
     <link rel="stylesheet" href="Styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
+        /* Add this style block for specific styles related to this page */
+        body {
+            font-family: 'Arial', sans-serif; /* Use Arial or any other default font */
+        }
+
+        section {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive; /* Use Press Start 2P or any other streamer-style font */
+            color: #fff; /* Change font color to white */
+            margin-bottom: 30px; /* Add space below each section */
+        }
+
+        section h2 {
+            font-size: 2em; /* Increase font size for section headings */
+            margin-bottom: 20px; /* Add space below section headings */
+        }
+
+        section p {
+            font-size: 1.2em; /* Increase font size for paragraphs */
+            margin-bottom: 15px; /* Add space below paragraphs */
+        }
+
+        table {
+            margin: 0 auto; /* Center the table horizontally */
+            border-collapse: collapse;
+            width: 80%; /* Set the width of the table */
+        }
+
+        table, th, td {
+            border: 1px solid #fff; /* Add border for table cells */
+            padding: 10px; /* Add padding for table cells */
+        }
+
+        th {
+            background-color: #333; /* Dark background color for table headers */
+            color: #fff; /* Font color for table headers */
+        }
+
         .countdown {
             font-size: 20px;
             margin-top: 20px;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .video-container iframe {
+            width: 400px;
+            height: 250px;
         }
     </style>
 </head>
@@ -64,10 +115,42 @@
         <!-- Embedded YouTube Videos -->
         <section>
             <h2>My YouTube Videos</h2>
-            <!-- Replace VIDEO_ID with the actual ID of your YouTube videos -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <!-- Add more iframe tags for additional videos -->
+            <div class="video-container">
+                <!-- Replace VIDEO_ID with the actual ID of your YouTube videos -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Add more iframe tags for additional videos -->
+            </div>
+        </section>
+
+        <!-- Random Streamer Goals -->
+        <section>
+            <h2>Streamer Goals</h2>
+            <p>Help me reach my goals! Currently aiming for:</p>
+            <ul>
+                <li>500 Subscribers on Twitch</li>
+                <li>500 Followers on Kick</li>
+                <li>500 Subscribers on YouTube</li>
+            </ul>
+        </section>
+
+        <!-- Join the Community Section -->
+        <section>
+            <h2>Join the Community!</h2>
+            <p>Join our vibrant community of gamers and stream enthusiasts. We host weekly game nights, exclusive giveaways, and more!</p>
+            <p>Join our <a href="https://discord.gg/5R8pDXX4B6">Discord Server</a> to connect with other fans and receive live updates!</p>
+        </section>
+        
+        <!-- Stream Highlights Section -->
+        <section>
+            <h2>Stream Highlights</h2>
+            <p>Check out some of the best moments from my recent streams:</p>
+            <div class="video-container">
+                <!-- Replace VIDEO_ID with the actual ID of your Twitch highlights -->
+                <iframe src="https://player.twitch.tv/?video=VIDEO_ID1" frameborder="0" allowfullscreen="true" scrolling="no" height="315" width="560"></iframe>
+                <iframe src="https://player.twitch.tv/?video=VIDEO_ID2" frameborder="0" allowfullscreen="true" scrolling="no" height="315" width="560"></iframe>
+                <!-- Add more iframe tags for additional highlights -->
+            </div>
         </section>
     </main>
     <footer>
