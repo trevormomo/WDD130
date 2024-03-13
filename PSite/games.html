@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Games I Stream</h1>
+        <h1>My Gaming Adventures</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -19,24 +19,38 @@
     </header>
     <main>
         <section>
-            <h2>My Favorite Games</h2>
-            <p>Here are some of the games I love streaming. Join me for these adventures!</p>
-            <ul>
-                <li>The Legend of Zelda: Breath of the Wild</li>
-                <li>Fortnite</li>
-                <li>Among Us</li>
-                <li>Dark Souls III</li>
-                <li>Minecraft</li>
-            </ul>
+            <h2>Games I Play</h2>
+            <p>Explore the diverse array of games I enjoy streaming and playing:</p>
+            <form action="vote.php" method="post">
+                <ul>
+                    <li><input type="checkbox" name="game[]" value="Rocket League"> Rocket League</li>
+                    <li><input type="checkbox" name="game[]" value="Phasmophobia"> Phasmophobia</li>
+                    <li><input type="checkbox" name="game[]" value="Minecraft"> Minecraft</li>
+                    <li><input type="checkbox" name="game[]" value="League of Legends / Teamfight Tactics"> League of Legends / Teamfight Tactics</li>
+                    <li><input type="checkbox" name="game[]" value="Helldivers 2"> Helldivers 2</li>
+                    <li><input type="checkbox" name="game[]" value="Overwatch"> Overwatch</li>
+                    <li><input type="checkbox" name="game[]" value="Palworld"> Palworld</li>
+                    <li><input type="checkbox" name="game[]" value="Golf with Friends"> Golf with Friends</li>
+                    <li><input type="checkbox" name="game[]" value="World of Goo"> World of Goo</li>
+                    <li><input type="checkbox" name="game[]" value="Planetside 2"> Planetside 2</li>
+                    <li><input type="checkbox" name="game[]" value="The entire Sid Meier's Collection (e.g., Civilization series)"> The entire Sid Meier's Collection (e.g., Civilization series)</li>
+                    <li><input type="checkbox" name="game[]" value="Beat Saber"> Beat Saber</li>
+                    <li><input type="checkbox" name="game[]" value="Killing Floor 2"> Killing Floor 2</li>
+                    <li><input type="checkbox" name="game[]" value="TheHunter: Call of the Wild"> TheHunter: Call of the Wild</li>
+                    <li><input type="checkbox" name="game[]" value="Payday 2"> Payday 2</li>
+                    <li><input type="checkbox" name="game[]" value="Team Fortress 2"> Team Fortress 2</li>
+                    <li><input type="checkbox" name="game[]" value="Stick Fight: The Game"> Stick Fight: The Game</li>
+                    <li><input type="checkbox" name="game[]" value="Valheim"> Valheim</li>
+                </ul>
+                <button type="submit">Submit Vote</button>
+            </form>
+            <div id="voting-results">
+                <!-- Voting results will be displayed here -->
+            </div>
         </section>
         <section>
-            <h2>Upcoming Games</h2>
-            <p>I'm always looking for new games to try. Here's what's on my radar:</p>
-            <ul>
-                <li>Elden Ring</li>
-                <li>Hades II</li>
-                <li>The Witcher 4 (Working Title)</li>
-            </ul>
+            <h2>Game Development</h2>
+            <p>As a passionate gamer and streamer, I also dabble in game development. I enjoy creating immersive experiences, particularly in the realm of VR gaming. Stay tuned for updates on my latest projects and creations!</p>
         </section>
     </main>
     <footer>
