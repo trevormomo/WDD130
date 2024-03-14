@@ -9,13 +9,149 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Additional CSS styles */
+    body {
+      font-family: 'Barlow Condensed', sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: #007bff;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .logo {
+      width: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin-top: 20px;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .hero-section {
+      background-color: #1fca50;
+      padding: 100px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .page-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 20px;
+    }
+
+    .pricing-table {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+      background-color: #1fca50;
+      padding: 20px;
+    }
+
+    .raft-option {
+      width: 200px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .raft-option:hover {
+      transform: translateY(-5px);
+    }
+
+    .raft-option img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .raft-info h2 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #007bff;
+      margin-top: 10px;
+    }
+
+    .includes {
+      margin-top: 20px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .includes li {
+      margin-bottom: 5px;
+    }
+
+    .additional-info {
+      padding: 100px 0;
+      text-align: center;
+      background-color: #1fca50;
+      color: #fff;
+    }
+
+    .feature-image {
+      max-width: 100%;
+      margin-top: 30px;
+    }
+
+    footer {
+      background-color: #1fca50;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  </style>
 </head>
 <body>
-
-
   <div class="page">
     <header>
-      <img class="logo" src="images\logo4.png" alt="Green River Rafting Logo" width="250">
+      <img class="logo" src="images\logo4.png" alt="Green River Rafting Logo">
       <nav>
         <ul class="main-nav">
           <li><a href="index.html">Home</a></li>
@@ -25,33 +161,25 @@
       </nav>
     </header>
     <main>
-      <style>
-
-      </style>
-      <section class="hero-section" style="background-image: url('images/canyon.jpg');">
+      <section class="hero-section">
         <h1 class="page-title">Raft Sizes & Pricing</h1>
         <p class="intro-text">All raft prices include shuttle service to the launch and pick-up locations, ensuring a hassle-free adventure.</p>
       </section>
       <section class="pricing-table">
-          <div class="raft-group">
-              <article class="raft-option">
-                  <div class="raft-img">
-                      <img src="images/2raft.png" alt="2-3 Man Raft">
-                  </div>
-                  <div class="raft-info">
-                      <h2>2-3 Person Raft</h2>
-                      <p class="price">$69.00</p>
-                      <ul class="includes">
-                          <li>Life Jackets</li>
-                          <li>Paddles</li>
-                          <li>Shuttle Service</li>
-                          <li>Bailing Bucket</li>
-                      </ul>
-                  </div>
-              </article>
+        <div class="raft-option">
+          <img src="images/2raft.png" alt="2-3 Man Raft">
+          <div class="raft-info">
+            <h2>2-3 Person Raft</h2>
+            <p class="price">$69.00</p>
+            <ul class="includes">
+              <li>Life Jackets</li>
+              <li>Paddles</li>
+              <li>Shuttle Service</li>
+              <li>Bailing Bucket</li>
+            </ul>
           </div>
-            </article>
-        <article class="raft-option">
+        </div>
+        <div class="raft-option">
           <img src="images/5raft.png" alt="4-6 Man Raft">
           <div class="raft-info">
             <h2>4-6 Person Raft</h2>
@@ -63,8 +191,8 @@
               <li>Bailing Bucket</li>
             </ul>
           </div>
-        </article>
-        <article class="raft-option">
+        </div>
+        <div class="raft-option">
           <img src="images/7raft.png" alt="7-9 Man Raft">
           <div class="raft-info">
             <h2>7-9 Person Raft</h2>
@@ -76,8 +204,8 @@
               <li>Bailing Bucket</li>
             </ul>
           </div>
-        </article>
-        <article class="raft-option">
+        </div>
+        <div class="raft-option">
           <img src="images/12raft.png" alt="10-12 Man Raft">
           <div class="raft-info">
             <h2>10-12 Person Raft</h2>
@@ -89,7 +217,7 @@
               <li>Bailing Bucket</li>
             </ul>
           </div>
-        </article>
+        </div>
       </section>
       <section class="additional-info">
         <h2>Seamless Rafting Experience</h2>
@@ -111,5 +239,5 @@
       </div>
     </footer>
   </div>
-</body>
-</html>
+  </body>
+  </html>

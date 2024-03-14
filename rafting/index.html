@@ -9,6 +9,122 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Additional CSS styles */
+    body {
+      font-family: 'Barlow Condensed', sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: #007bff;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .logo {
+      width: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin-top: 20px;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .hero-section {
+      background-color: #1fca50;
+      padding: 100px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .page-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 20px;
+    }
+
+    .features {
+      background-color: #1fca50;
+      padding: 50px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .features h2 {
+      margin-bottom: 30px;
+    }
+
+    .feature-item {
+      margin-bottom: 50px;
+    }
+
+    .feature-item img {
+      max-width: 100%;
+    }
+
+    .testimonial {
+      background-color: #1fca50;
+      padding: 50px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .testimonial h2 {
+      margin-bottom: 30px;
+    }
+
+    blockquote {
+      margin-bottom: 20px;
+    }
+
+    blockquote,
+    cite {
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #1fca50;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -23,59 +139,59 @@
       </nav>
     </header>
     <main>
-      <section class="hero-section center-text">
-          <h1>Welcome to Green River Rafting Company</h1>
-          <p>Embark on an unforgettable adventure with us!</p>
-          <a href="pricing.html" class="book-now-btn">Book Your Adventure</a>
+      <section class="hero-section">
+        <h1 class="page-title">Welcome to Green River Rafting Company</h1>
+        <p class="intro-text">Embark on an unforgettable adventure with us!</p>
+        <a href="pricing.html" class="book-now-btn">Book Your Adventure</a>
       </section>
-      <section class="features center-text">
-          <h2>Explore the River</h2>
-          <div class="feature-item">
-              <img src="images/family-rafting.png" alt="Family Rafting">
-              <h3>Family Fun</h3>
-              <p>Safe and fun experiences for all ages.</p>
-          </div>
-          <div class="feature-item">
-              <img src="images/rapid-adventure.png" alt="Rapid Adventure">
-              <h3>Thrilling Rapids</h3>
-              <p>Feel the adrenaline in our white-water expeditions.</p>
-          </div>
-          <div class="feature-item">
-              <img src="images/scenic-view.png" alt="Scenic View">
-              <h3>Scenic Beauty</h3>
-              <p>Marvel at the stunning landscapes along the Green River.</p>
-          </div>
+      <section class="features">
+        <h2>Explore the River</h2>
+        <div class="feature-item">
+          <img src="images/family-rafting.png" alt="Family Rafting">
+          <h3>Family Fun</h3>
+          <p>Safe and fun experiences for all ages.</p>
+        </div>
+        <div class="feature-item">
+          <img src="images/rapid-adventure.png" alt="Rapid Adventure">
+          <h3>Thrilling Rapids</h3>
+          <p>Feel the adrenaline in our white-water expeditions.</p>
+        </div>
+        <div class="feature-item">
+          <img src="images/scenic-view.png" alt="Scenic View">
+          <h3>Scenic Beauty</h3>
+          <p>Marvel at the stunning landscapes along the Green River.</p>
+        </div>
       </section>
-      <section class="testimonial center-text">
-          <h2>Hear From Our Adventurers</h2>
-          <!-- Testimonials -->
-          <blockquote>“We had an unforgettable journey down the Green River. The guides were knowledgeable and friendly, and the views were out of this world. Can’t wait to come back!”</blockquote>
-          <cite>- Happy Rafters</cite>
-          <blockquote>“Our family adventure on the Green River was the highlight of our summer. The kids are still talking about it!”</blockquote>
-          <cite>- The Martins</cite>
-          <blockquote>“I’ve been on several rafting trips, and Green River Rafting Co. stands out for their incredible service and expert guides.”</blockquote>
-          <cite>- Alex J.</cite>
-          <blockquote>“Perfect blend of thrill and safety. We tackled the rapids with confidence thanks to our amazing guide!”</blockquote>
-          <cite>- Sarah & Brian</cite>
-          <blockquote>“A mesmerizing journey through nature. It’s not just rafting; it’s an experience you carry with you.”</blockquote>
-          <cite>- Emily R.</cite>
-          <blockquote>“Booking was a breeze, and the trip was a blast. Highly recommend the sunset tour for an unforgettable view.”</blockquote>
-          <cite>- Omar G.</cite>
+      <section class="testimonial">
+        <h2>Hear From Our Adventurers</h2>
+        <!-- Testimonials -->
+        <blockquote>“We had an unforgettable journey down the Green River. The guides were knowledgeable and friendly, and the views were out of this world. Can’t wait to come back!”</blockquote>
+        <cite>- Happy Rafters</cite>
+        <blockquote>“Our family adventure on the Green River was the highlight of our summer. The kids are still talking about it!”</blockquote>
+        <cite>- The Martins</cite>
+        <blockquote>“I’ve been on several rafting trips, and Green River Rafting Co. stands out for their incredible service and expert guides.”</blockquote>
+        <cite>- Alex J.</cite>
+        <blockquote>“Perfect blend of thrill and safety. We tackled the rapids with confidence thanks to our amazing guide!”</blockquote>
+        <cite>- Sarah & Brian</cite>
+        <blockquote>“A mesmerizing journey through nature. It’s not just rafting; it’s an experience you carry with you.”</blockquote>
+        <cite>- Emily R.</cite>
+        <blockquote>“Booking was a breeze, and the trip was a blast. Highly recommend the sunset tour for an unforgettable view.”</blockquote>
+        <cite>- Omar G.</cite>
       </section>
-  </main>
-  <footer>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/" class="social-icon" target="_blank">
-        <img src="images/fb.png" alt="Facebook" style="width: 30px; height: 30px;">
-      </a>
-      <a href="https://www.twitter.com/" class="social-icon" target="_blank">
-        <img src="images/twitter.png" alt="Twitter" style="width: 30px; height: 30px;">
-      </a>
-      <a href="https://www.instagram.com/" class="social-icon" target="_blank">
-        <img src="images/insta.png" alt="Instagram" style="width: 30px; height: 30px;">
-      </a>
-    </div>
-  </footer>
-</div>
-</body>
-</html>
+    </main>
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/" class="social-icon" target="_blank">
+          <img src="images/fb.png" alt="Facebook" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.twitter.com/" class="social-icon" target="_blank">
+          <img src="images/twitter.png" alt="Twitter" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.instagram.com/" class="social-icon" target="_blank">
+          <img src="images/insta.png" alt="Instagram" style="width: 30px; height: 30px;">
+        </a>
+      </div>
+    </footer>
+  </div>
+  </body>
+  </html>
