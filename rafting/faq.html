@@ -5,52 +5,47 @@
   <title>Green River Rafting Company - FAQ</title>
   <meta name="description" content="Frequently Asked Questions at The Green River Rafting Company. Find answers to common queries about rafting adventures, preparation, and policies.">
   <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <body class="FAQBG">
-    <body class="FAQBG">
-      <body style="background-color: #f0f0f0;">
+  <script>
+    // Wait for the DOM content to load before attaching event listeners
+    document.addEventListener('DOMContentLoaded', function () {
+      // Select all FAQ questions
+      var faqQuestions = document.querySelectorAll('.faq-question');
 
-      <div class="page">
-        <header>
-          <img class="logo" src="images/logo4.png" alt="Green River Rafting Logo" width="250">
-          <nav>
-            <ul class="main-nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="pricing.html">Rafts & Pricing</a></li>
-              <li><a href="faq.html" class="active">FAQ</a></li>
-            </ul>
-          </nav>
-        </body>
-      </header>
-    <main>
-       <script>
-      // Wait for the DOM content to load before attaching event listeners
-document.addEventListener('DOMContentLoaded', function () {
-  // Select all FAQ questions
-  var faqQuestions = document.querySelectorAll('.faq-question');
+      // Loop through each FAQ question and attach a click event listener
+      faqQuestions.forEach(function (question) {
+        question.addEventListener('click', function () {
+          // Toggle the 'active' class on the clicked question
+          question.classList.toggle('active');
 
-  // Loop through each FAQ question and attach a click event listener
-  faqQuestions.forEach(function (question) {
-    question.addEventListener('click', function () {
-      // Toggle the 'active' class on the clicked question
-      question.classList.toggle('active');
+          // Select the corresponding FAQ answer
+          var answer = question.nextElementSibling;
 
-      // Select the corresponding FAQ answer
-      var answer = question.nextElementSibling;
-
-      // Toggle the display of the answer
-      if (question.classList.contains('active')) {
-        // If the question is active, show the answer
-        answer.style.display = 'block';
-      } else {
-        // If the question is not active, hide the answer
-        answer.style.display = 'none';
-      }
+          // Toggle the display of the answer
+          if (question.classList.contains('active')) {
+            // If the question is active, show the answer
+            answer.style.display = 'block';
+          } else {
+            // If the question is not active, hide the answer
+            answer.style.display = 'none';
+          }
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
+</head>
+<body class="FAQBG">
+  <div class="page">
+    <header>
+      <img class="logo" src="images/logo4.png" alt="Green River Rafting Logo" width="250">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Rafts & Pricing</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
       <section class="faq-section">
         <h1>Frequently Asked Questions</h1>
         <div class="faq-container">
@@ -87,20 +82,19 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </section>
     </main>
-     <footer>
+    <footer>
       <div class="social-icons">
         <a href="https://www.facebook.com/" class="social-icon" target="_blank">
-          <img src="images/fb.png" alt="Facebook">
+          <img src="images/fb.png" alt="Facebook" style="width: 30px; height: 30px;">
         </a>
         <a href="https://www.twitter.com/" class="social-icon" target="_blank">
-          <img src="images/twitter.png" alt="Twitter">
+          <img src="images/twitter.png" alt="Twitter" style="width: 30px; height: 30px;">
         </a>
         <a href="https://www.instagram.com/" class="social-icon" target="_blank">
-          <img src="images/insta.png" alt="Instagram">
+          <img src="images/insta.png" alt="Instagram" style="width: 30px; height: 30px;">
         </a>
       </div>
     </footer>
   </div>
-  <script src="js/faq.js"></script>
 </body>
 </html>
