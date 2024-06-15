@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green River Rafting Company - FAQ</title>
+  <meta name="description" content="Frequently Asked Questions at The Green River Rafting Company. Find answers to common queries about rafting adventures, preparation, and policies.">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Wait for the DOM content to load before attaching event listeners
+    document.addEventListener('DOMContentLoaded', function () {
+      // Select all FAQ questions
+      var faqQuestions = document.querySelectorAll('.faq-question');
+
+      // Loop through each FAQ question and attach a click event listener
+      faqQuestions.forEach(function (question) {
+        question.addEventListener('click', function () {
+          // Toggle the 'active' class on the clicked question
+          question.classList.toggle('active');
+
+          // Select the corresponding FAQ answer
+          var answer = question.nextElementSibling;
+
+          // Toggle the display of the answer
+          if (question.classList.contains('active')) {
+            // If the question is active, show the answer
+            answer.style.display = 'block';
+          } else {
+            // If the question is not active, hide the answer
+            answer.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body class="FAQBG">
+  <div class="page">
+    <header>
+      <img class="logo" src="images/logo4.png" alt="Green River Rafting Logo" width="250">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Rafts & Pricing</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="faq-section">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-container">
+          <div class="faq">
+            <button class="faq-question">What do I need to bring for my rafting trip?</button>
+            <div class="faq-answer">
+              <p>Essentials include sunscreen, water, snacks, and suitable clothing. A more detailed list will be provided upon booking.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">Are there age restrictions for rafting trips?</button>
+            <div class="faq-answer">
+              <p>Yes, for safety reasons, participants must be at least 6 years old for our calm water trips and at least 12 years old for white water rafting.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">How experienced do I need to be?</button>
+            <div class="faq-answer">
+              <p>No prior rafting experience is necessary for our calm water trips. For white water rafting, we recommend some experience, but it is not required.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">What safety measures are in place?</button>
+            <div class="faq-answer">
+              <p>All our guides are certified in first aid and river rescue. We provide life jackets and helmets and conduct a safety briefing before every trip.</p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="faq-question">Can I book a private trip?</button>
+            <div class="faq-answer">
+              <p>Yes, private trips can be arranged. Please contact us for more details and to discuss your specific needs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/" class="social-icon" target="_blank">
+          <img src="images/fb.png" alt="Facebook" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.twitter.com/" class="social-icon" target="_blank">
+          <img src="images/twitter.png" alt="Twitter" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.instagram.com/" class="social-icon" target="_blank">
+          <img src="images/insta.png" alt="Instagram" style="width: 30px; height: 30px;">
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

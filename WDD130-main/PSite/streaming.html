@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming - Your Name</title>
+    <link rel="stylesheet" href="Styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Add this style block for specific styles related to this page */
+        body {
+            font-family: 'Arial', sans-serif; /* Use Arial or any other default font */
+        }
+
+        section {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive; /* Use Press Start 2P or any other streamer-style font */
+            color: #fff; /* Change font color to white */
+            margin-bottom: 30px; /* Add space below each section */
+        }
+
+        section h2 {
+            font-size: 2em; /* Increase font size for section headings */
+            margin-bottom: 20px; /* Add space below section headings */
+        }
+
+        section p {
+            font-size: 1.2em; /* Increase font size for paragraphs */
+            margin-bottom: 15px; /* Add space below paragraphs */
+        }
+
+        table {
+            margin: 0 auto; /* Center the table horizontally */
+            border-collapse: collapse;
+            width: 80%; /* Set the width of the table */
+        }
+
+        table, th, td {
+            border: 1px solid #fff; /* Add border for table cells */
+            padding: 10px; /* Add padding for table cells */
+        }
+
+        th {
+            background-color: #333; /* Dark background color for table headers */
+            color: #fff; /* Font color for table headers */
+        }
+
+        .countdown {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .video-container iframe {
+            width: 400px;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Streaming Channels</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="streaming.html">Streaming</a></li>
+                <li><a href="games.html">Games</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Where to Find Me</h2>
+            <p>Join me on <a href="https://www.twitch.tv/pixelatedcheeze">Twitch</a>, <a href="https://kick.com/pixelatedcheese">Kick</a>, and <a href="https://www.youtube.com/channel/UCvU2Ylpb4_xNKzznkjOX5Cg">YouTube</a> for live streams and gaming content.</p>
+        </section>
+        <section>
+            <h2>Streaming Schedule</h2>
+            <p>Check out my streaming schedule to never miss a live session!</p>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Time (PST)</th>
+                    <th>Platform</th>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                    <td>7 PM - 9 PM</td>
+                    <td>All Platforms</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>8 PM - 10 PM</td>
+                    <td>All Platforms</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>6 PM - 8 PM</td>
+                    <td>All Platforms</td>
+                </tr>
+            </table>
+        </section>
+        
+        <!-- Countdown Timer -->
+        <section>
+            <h2>Next Stream Countdown</h2>
+            <div id="countdown" class="countdown"></div>
+        </section>
+        
+        <!-- Embedded YouTube Videos -->
+        <section>
+            <h2>My YouTube Videos</h2>
+            <div class="video-container">
+                <!-- Replace VIDEO_ID with the actual ID of your YouTube videos -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Add more iframe tags for additional videos -->
+            </div>
+        </section>
+
+        <!-- Random Streamer Goals -->
+        <section>
+            <h2>Streamer Goals</h2>
+            <p>Help me reach my goals! Currently aiming for:</p>
+            <ul>
+                <li>500 Subscribers on Twitch</li>
+                <li>500 Followers on Kick</li>
+                <li>500 Subscribers on YouTube</li>
+            </ul>
+        </section>
+
+        <!-- Join the Community Section -->
+        <section>
+            <h2>Join the Community!</h2>
+            <p>Join our vibrant community of gamers and stream enthusiasts. We host weekly game nights, exclusive giveaways, and more!</p>
+            <p>Join our <a href="https://discord.gg/5R8pDXX4B6">Discord Server</a> to connect with other fans and receive live updates!</p>
+        </section>
+        
+        <!-- Stream Highlights Section -->
+        <section>
+            <h2>Stream Highlights</h2>
+            <p>Check out some of the best moments from my recent streams:</p>
+            <div class="video-container">
+                <!-- Replace VIDEO_ID with the actual ID of your Twitch highlights -->
+                <iframe src="https://player.twitch.tv/?video=VIDEO_ID1" frameborder="0" allowfullscreen="true" scrolling="no" height="315" width="560"></iframe>
+                <iframe src="https://player.twitch.tv/?video=VIDEO_ID2" frameborder="0" allowfullscreen="true" scrolling="no" height="315" width="560"></iframe>
+                <!-- Add more iframe tags for additional highlights -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Set the date and time of the next stream in PST
+        const nextStreamDate = new Date('March 15, 2024 18:00:00 GMT-0800').getTime();
+
+        // Update the countdown every second
+        const countdownElement = document.getElementById('countdown');
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = nextStreamDate - now;
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                countdownElement.innerHTML = "Stream is live!";
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

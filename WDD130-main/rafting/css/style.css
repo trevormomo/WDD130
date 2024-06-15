@@ -1,0 +1,91 @@
+/* style.css */
+
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set background image */
+body.FAQBG {
+  background-image: url('../images/FAQBG.png'); /* Adjust the path as needed */
+  background-size: cover;
+}
+
+/* Style header */
+header {
+  background-color: #fff; /* Change the color as needed */
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000; /* Change the color as needed */
+  font-weight: bold;
+}
+
+nav ul li a.active {
+  color: #007bff; /* Change the color as needed */
+}
+
+/* Style FAQ section */
+.faq-section {
+  padding: 20px;
+  margin: 50px auto;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+}
+
+.faq-question {
+  background-color: #007bff; /* Change the color as needed */
+  color: #fff; /* Change the color as needed */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.faq-answer {
+  display: none;
+  padding: 10px;
+}
+/* Set background image for header */
+header {
+  background-image: url('../images/banner.png'); /* Adjust the path as needed */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style footer */
+footer {
+  background-color: #1fca50; /* Change the color as needed */
+  padding: 20px;
+  text-align: center;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icon {
+  margin-right: 10px;
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+}

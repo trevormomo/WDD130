@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Your Name</title>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/style.css">
+    <style>
+        /* Additional CSS for Profile Picture */
+        .profile-img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease-in-out; /* Added transition for smooth animation */
+        }
+
+        /* Apply rotation on hover */
+        .profile-img:hover {
+            transform: rotate(5deg); /* Rotate the image slightly on hover */
+        }
+
+        /* Centering all sections */
+        section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Centering lists */
+        ul {
+            text-align: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Centering links */
+        ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Applying fonts */
+        h1, h2, h3 {
+            font-family: 'Madimi One', sans-serif;
+        }
+
+        p {
+            font-family: 'Madimi One', sans-serif;
+        }
+
+        /* Additional styling for streamer goals */
+        .goals-list {
+            margin-top: 20px;
+        }
+
+        .goals-list li {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Additional styling for community section */
+        .community-info {
+            margin-top: 20px;
+        }
+
+        /* Additional styling for stream highlights */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .video-container iframe {
+            margin: 10px;
+        }
+
+        /* Parallax effect for header background */
+        header {
+            background-image: url('path_to_your_image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Adjust as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            overflow-x: hidden;
+            perspective: 1px;
+            overflow-y: auto;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Adjust opacity as needed */
+        }
+
+        /* Smooth scroll effect for navigation links */
+        nav ul li a {
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ff6b6b; /* Change color on hover */
+        }
+
+        /* Smooth scroll effect */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Streaming World</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="streaming.html">Stream Info</a></li>
+                <li><a href="games.html">Games</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Profile Picture -->
+        <img src="C:\Homework\WDD130\PSite\images\Logocheese.png" alt="Your Profile Picture" class="profile-img">
+        
+        <section id="about"> <!-- Added unique IDs for sections -->
+            <h2>About Me</h2>
+            <p>I'm a passionate streamer and programmer who loves to explore various games and share my experiences on Twitch, Kick, and YouTube. Join me as I dive into new adventures, share programming tips, and build a community around the games we love.</p>
+        </section>
+        <section id="streams">
+            <h2>Latest Streams</h2>
+            <p>Check out my latest streams and highlights on <a href="https://www.twitch.tv/pixelatedcheeze">Twitch</a>, <a href="https://kick.com/pixelatedcheese">Kick</a>, and <a href="https://www.youtube.com/channel/UCvU2Ylpb4_xNKzznkjOX5Cg">YouTube</a>. Don't miss out on the action!</p>
+        </section>
+        <section id="stream-schedule">
+            <!-- The stream schedule will be inserted here -->
+        </section>
+        
+        <script>
+            // Function to generate the stream schedule
+            function generateStreamSchedule(gamesList) {
+                // Define the schedule format (day and time for each game)
+                const schedule = {
+                    "Monday": ["League of Legends", "Minecraft"],
+                    "Tuesday": ["Overwatch 2", "Rocket League"],
+                    "Wednesday": ["Palworld", "Team Fortress 2"],
+                    "Thursday": ["Phasmophobia", "TheHunter: Call of the Wild"],
+                    "Friday": ["Velheim", "World of Goo"],
+                    // Add more days and games as needed
+                };
+        
+                // Create HTML content for the schedule
+                let scheduleHTML = "<h2>Stream Schedule</h2><ul>";
+                for (const day in schedule) {
+                    scheduleHTML += `<li><strong>${day}</strong>: `;
+                    scheduleHTML += schedule[day].map(game => `<span>${game}</span>`).join(", ");
+                    scheduleHTML += "</li>";
+                }
+                scheduleHTML += "</ul>";
+        
+                // Insert the schedule HTML into the designated section
+                document.getElementById("stream-schedule").innerHTML = scheduleHTML;
+            }
+        
+            // Wait for the DOM content to load
+            document.addEventListener("DOMContentLoaded", function() {
+                // Extract the list of games from the HTML
+                const gamesList = Array.from(document.querySelectorAll(".game-name")).map(game => game.textContent);
+                
+                // Generate the stream schedule based on the list of games
+                generateStreamSchedule(gamesList);
+            });
+        </script>
+        
+        <section id="games">
+            <h2>Upcoming Games</h2>
+            <p>Stay tuned for my upcoming game streams. I'm always on the lookout for new and exciting titles to explore. Have suggestions? Let's hear them!</p>
+            <p>Upcoming Games:</p>
+            <ul>
+                <li>Apex Legends Season 12 Launch</li>
+                <li>Fortnite Live Event Coverage</li>
+                <li>Exclusive Gameplay of Cyberpunk 2077 DLC</li>
+            </ul>
+        </section>
+        
+        <!-- Section for YouTube Videos -->
+        <section>
+            <h2>My YouTube Videos</h2>
+            <!-- Replace VIDEO_ID with the actual ID of your YouTube video -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZQmOjqjayzc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- You can add more iframe tags for additional videos -->
+        </section>
+
+        <!-- Random Goals -->
+        <section>
+            <h2>Streamer Goals</h2>
+            <p>Help me reach my goals! Currently aiming for:</p>
+            <ul class="goals-list">
+                <li>500 Subscribers on Twitch</li>
+                <li>500 Followers on Kick</li>
+                <li>500 Subscribers on YouTube</li>
+                <li>1000 Followers on Twitter</li>
+                <li>1000 Followers on Instagram</li>
+            </ul>
+        </section>
+
+        <!-- Join the Community Section -->
+        <section class="community-info">
+            <h2>Join the Community!</h2>
+            <p>Join our vibrant community of gamers and stream enthusiasts. We host weekly game nights, exclusive giveaways, and more!</p>
+            <p>Join our <a href="https://discord.gg/5R8pDXX4B6">Discord Server</a> to connect with other fans and receive live updates!</p>
+        </section>
+        
+        <!-- Stream Highlights Section -->
+        <section>
+            <h2>Stream Highlights</h2>
+            <p>Check out some of the best moments from my recent streams:</p>
+            <div class="video-container">
+                <!-- Replace VIDEO_ID with the actual ID of your Twitch highlights -->
+                <iframe src="https://player.twitch.tv/?video=VIDEO_ID1" frameborder="0" allowfullscreen="true" scrolling="no" height="315" width="560"></iframe>
+                <iframe src="https://player.twitch.tv/?video=VIDEO_ID2" frameborder="0" allowfullscreen="true" scrolling="no" height="315" width="560"></iframe>
+                <!-- Add more iframe tags for additional highlights -->
+            </div>
+        </section>
+
+    <!-- Additional Section -->
+    <section>
+        <h2>Additional Section</h2>
+        <p>Welcome to my streaming world! Here, you'll find everything you need to know about my streams, upcoming events, and community activities.</p>
+        <p>Stay connected with me on social media:</p>
+        <ul>
+            <li><a href="#">Twitter</a> - Follow me for real-time updates and engaging conversations.</li>
+            <li><a href="#">Instagram</a> - Check out my Instagram for behind-the-scenes photos and highlights.</li>
+            <li><a href="#">Discord</a> - Join our Discord server for exclusive access to events, game nights, and discussions.</li>
+        </ul>
+        <p>If you have any questions, suggestions, or feedback, feel free to reach out to me via email at contact@example.com.</p>
+    </section>
+
+    <!-- Additional Section's Add As Needed -->
+
+        <p>As a Patreon member, you'll receive early access to streams, exclusive merchandise discounts, and special invitations to private events.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Trevor Thompson. All rights reserved.</p>
+    </footer>
+</body>
+</html>
